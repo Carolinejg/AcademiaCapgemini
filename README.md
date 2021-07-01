@@ -28,7 +28,7 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
 
 - Com o Eclipse na perspectiva Java execute o arquivo 
 - Entre com a informação do valor do investimento 
-- O resultado é uma projeção da quantidade máxima de pessoas que visualizaram o mesmo anúncio em uma faixa mínima e máxima de valores 
+- O resultado é uma projeção da quantidade máxima e mínima de pessoas que visualizaram o mesmo anúncio 
 
 ![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora_terminal.png)
 
