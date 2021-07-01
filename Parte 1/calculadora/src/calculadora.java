@@ -39,6 +39,8 @@ public class calculadora {
 		setArredonda(false);
 		visualizacaoMaxima = calcVisualizacao(investimento);
 		visuTotalMax=visualizacaoMaxima;
+		
+		//Laço responsável por calcular a quantidade de visualizacao máxima
 		for(int i=0; i<4 ; i++) {
 			//chamando a funcao de cálculo da nova visualizacao passando a anterior
 			visualizacaoMaxima = calcNovasVisualizacao(visualizacaoMaxima);
