@@ -22,7 +22,11 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
 ### Como executar  o sistema calculadora
 - Clone este repositório usando: git clone https://github.com/Carolinejg/academiacapgemini/
 - Importe o projeto no Eclipse 
-- 
+- Identifique o arquivo ***calculadora.java*** no seguinte diretório: 
 
+![Modelo Conceitual](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora.png)
+
+- Execute o arquivo 
+- Entre com a informação o valor do investimento 
 
 
