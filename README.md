@@ -22,11 +22,14 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
 ### Como executar  o sistema calculadora
 - Clone este repositório usando: git clone https://github.com/Carolinejg/academiacapgemini/
 - Importe o projeto no Eclipse 
-- Identifique o arquivo ***calculadora.java*** no seguinte diretório: 
+- Identifique o arquivo ***calculadora.java*** no seguinte diretório
 
-![Modelo Conceitual](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora.png)
+ ![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora.png)
 
-- Execute o arquivo 
-- Entre com a informação o valor do investimento 
+- Com o Eclipse na perspectiva Java execute o arquivo 
+- Entre com a informação do valor do investimento 
+- O resultado é uma projeção da quantidade máxima de pessoas que visualizaram o mesmo anúncio em uma faixa mínima e máxima de valores 
+
+![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora_terminal.png)
 
 
