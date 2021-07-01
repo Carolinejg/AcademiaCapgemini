@@ -1,4 +1,4 @@
-# Pré requisitos para rodar os sistemas: 
+# Pré-requisitos para rodar os sistemas: 
 - Ter o Java JDK instalado
 - Ter o Eclipse IDE for Enterprise Java Developers instalado 
 
