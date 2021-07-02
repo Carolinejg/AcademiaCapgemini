@@ -9,7 +9,6 @@ public class calculadora {
 		return arredonda;
 	}
 
-
 	public static void setArredonda(boolean arredonda) {
 		calculadora.arredonda = arredonda;
 	}
@@ -177,7 +176,7 @@ public class calculadora {
 			saidasMax.add(86.41159680000001);
 			
 			for(int i = 0; i < entradas.size(); i++) {
-				//se a saída seperada for atendida
+				//se a saída esperada for atendida
 				if(calcVisualizacaoMinima(entradas.get(i)) == saidas.get(i)) {
 					System.out.println("Passou no teste "+i+ " da função mínima");
 				}
