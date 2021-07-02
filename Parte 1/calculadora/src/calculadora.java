@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Math;
 
@@ -12,52 +13,88 @@ public class calculadora {
 	public static void setArredonda(boolean arredonda) {
 		calculadora.arredonda = arredonda;
 	}
-
-
+	
+	//método principal 
+	//para realização dos testes descomente a linha mainTeste
 	public static void main(String[] args) {
+		//mainTeste(args);
+		mainUsuario(args);
+	}
+	
+	//funcao principal para realizar os testes unitarios 
+	public static void mainTeste(String[] args) {
+		Teste.teste();
+	}
+	
+	//funcao principal para interacao com usuário
+	public static void mainUsuario(String[] args) {
 		double investimento;
-		double visualizacaoMinima, visuTotal,visualizacaoMaxima,visuTotalMax;
+		double visuMin, visuMax;
 		
 		System.out.println("Informe o valor do investimento!");
 		Scanner ler = new Scanner(System.in);
+		
 		investimento = ler.nextDouble();
+		while(investimento <= 0) {
+			System.out.println("Digite um valor maior que zero!");
+			investimento = ler.nextDouble();
+		}
+		visuMin=calcVisualizacaoMinima(investimento);
 		ler.close();
+		visuMax=calcVisualizacaoMaxima(investimento);
+			
+		System.out.println("O total de visualizações mínimas é de: "+visuMin);
+		System.out.println("O total de visualizações máximas é de: "+visuMax);
 		
-		visualizacaoMinima = calcVisualizacao(investimento);
-		visuTotal=visualizacaoMinima;
+	}
+	
+	//função que calcula a visualizacao total
+	public static double calcVisualizacaoTotal(double investimento) {
+		double visualizacao,visuTotal;
 		
-		setArredonda(true);
+		if(investimento < 0) {
+			return 0;
+		}
 		
+		visualizacao = calcVisualizacao(investimento);
+		visuTotal=visualizacao;
 		//Laço responsável por calcular a quantidade de visualizacao mínima
 		for(int i=0; i<4 ; i++) {
 			//chamando a funcao de cálculo da nova visualizacao passando a anterior
-			visualizacaoMinima = calcNovasVisualizacao(visualizacaoMinima);
+			visualizacao = calcNovasVisualizacao(visualizacao);
 			//guardando de forma acumulativa o total de visualizacao a cada laço
-			visuTotal += visualizacaoMinima;
+			visuTotal += visualizacao;
+		
 		}
+		return visuTotal;
+	}
+	
+	//calcula a visualizacao mínima
+	public static double calcVisualizacaoMinima(double investimento) {
+		double totalVisu;
+		
+		setArredonda(true);
+		totalVisu = calcVisualizacaoTotal(investimento);
+		
+		return totalVisu;
+	}
+	
+	//calcula a visualizacao maxima
+	public static double calcVisualizacaoMaxima(double investimento) {
+		double totalVisu; 
 		
 		setArredonda(false);
-		visualizacaoMaxima = calcVisualizacao(investimento);
-		visuTotalMax=visualizacaoMaxima;
+		totalVisu = calcVisualizacaoTotal(investimento);
 		
-		//Laço responsável por calcular a quantidade de visualizacao máxima
-		for(int i=0; i<4 ; i++) {
-			//chamando a funcao de cálculo da nova visualizacao passando a anterior
-			visualizacaoMaxima = calcNovasVisualizacao(visualizacaoMaxima);
-			//guardando de forma acumulativa o total de visualizacao máxima a cada laço
-			visuTotalMax += visualizacaoMaxima;
-		}
-		
-		System.out.println("O total de visualizações mínimas é de: "+visuTotal);
-		System.out.println("O total de visualizações máximas é de: "+visuTotalMax);
-		
+		return totalVisu;
 	}
-		
 	
 	//função que calcula o visualização
 	public static double calcVisualizacao(double investimento) {
 		double visualizacao;
-		
+		if(investimento < 0) {
+			return 0;
+		}
 		visualizacao=30*investimento;
 		
 		if(isArredonda()) {
@@ -107,6 +144,9 @@ public class calculadora {
 	
 	//função que calcula a quantidade de visualizacao a partir da visualizacao anterior 
 	public static double calcNovasVisualizacao(double visualizacaoAnterior) {
+		if(visualizacaoAnterior <  0) {
+			return 0;
+		}
 		double clicks = calcClick(visualizacaoAnterior);
 		double compartilhamento = calcCompartilhamento(clicks);
 		double visualizacao = calcNovas_Visualizacao(compartilhamento);
@@ -114,5 +154,44 @@ public class calculadora {
 		return visualizacao;
 	}
 	
-
+	//classe para teste
+	public static class Teste {
+		private static void teste() {
+			ArrayList<Double> entradas = new ArrayList<>();
+			ArrayList<Double>saidas = new ArrayList<>();
+			ArrayList<Double>saidasMax = new ArrayList<>();
+			
+			//entradas gerais
+			entradas.add(-1.0);
+			entradas.add(0.0);
+			entradas.add(1.0);
+			
+			//saidas esperadas no minimo
+			saidas.add(0.0);
+			saidas.add(0.0);
+			saidas.add(30.0);
+			
+			//saidas para máximo
+			saidasMax.add(0.0);
+			saidasMax.add(0.0);
+			saidasMax.add(86.41159680000001);
+			
+			for(int i = 0; i < entradas.size(); i++) {
+				//se a saída seperada for atendida
+				if(calcVisualizacaoMinima(entradas.get(i)) == saidas.get(i)) {
+					System.out.println("Passou no teste "+i+ " da função mínima");
+				}
+				else {
+					System.out.println("Não passou no teste "+ i + " da função mínima");
+				}
+				
+				if(calcVisualizacaoMaxima(entradas.get(i)) == saidasMax.get(i)) {
+					System.out.println("Passou no teste "+i+ " da função máxima");
+				}
+				else {
+					System.out.println("Não passou no teste "+i+ " da função máxima");
+				}
+			}
+		}
+	}
 }
