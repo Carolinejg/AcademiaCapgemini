@@ -11,6 +11,8 @@ import model.Anuncio;
 import model.Total;
 
 
+//Servlet responsável por fazer criar a página de relatório 
+//com as informações de cada anuncio 
 
 @WebServlet(name = "ServletRelatorio", urlPatterns = {"/servletRelatorio"})
 public class ServletRelatorio extends HttpServlet{

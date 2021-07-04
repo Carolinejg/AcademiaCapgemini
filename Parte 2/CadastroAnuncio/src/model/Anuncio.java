@@ -43,7 +43,7 @@ public class Anuncio {
 		this.investimentoPorDia = investimentoPorDia;
 	}
 	
-	//função que calcula o total de todos os parametros (comp, visu e clicks)
+	//função que calcula o total de todos os parametros (compartiilhamento, visualização e clicks)
 	//recebe o investimento total
 	public static Total calcTotal(double investimentoTotal) {
 		Total total = new Total();
@@ -68,7 +68,7 @@ public class Anuncio {
 		return total;
 	}
 	
-	//função que calcula o visualização
+	//função que calcula a visualização
 		public static double calcVisualizacao(double investimento) {
 			double visualizacao;
 			if(investimento < 0) {
@@ -122,6 +122,7 @@ public class Anuncio {
 		return novVisualizacao;
 	}
 	
+	//funcão que calcula a quantidade de dias 
 	public long calcularDias() {
 		TimeUnit timeUnit = TimeUnit.DAYS;
 		long diffInMillies = getDataFinal().getTime() - getDataInicio().getTime();
@@ -129,6 +130,7 @@ public class Anuncio {
 		return dias;
 	}
 	
+	//função que calcula o investimento total
 	public double investimentoTotal(double investimentoInicial) {
 		double investimentoTotal=0;
 		long dias = calcularDias();
@@ -138,11 +140,4 @@ public class Anuncio {
 		return investimentoTotal;
 	}
 		
-	
-	
-	
-		
-		
-	
-	
 }

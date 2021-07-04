@@ -9,18 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+//Servlet responsável por criar o dashboard que faz o link para as 
+//páginas de cadastro e de relatório
 
 @WebServlet(name = "dashboard", urlPatterns = {"/dashboard"})
 public class ServletDashboard extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// verificar se há alguma ação a ser executada pelo servlet
-		if (verificarAcao(request, response)) {
-			// se houve alguma acao a ser executada nesse servlet
-			// e a pagina foi redirecionada, para a execução da função
-			return;
-		}
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		var writer = response.getWriter();
@@ -81,6 +78,12 @@ public class ServletDashboard extends HttpServlet {
 		+ "                    <span style=\"text-align:center\">Cadastrar anúncio</span></a>\r\n"
 		+ "            </li>\r\n"
 		
+        + "            <li class=\"nav-item\">\r\n"
+        + "                <a class=\"nav-link\" href=\"servletRelatorio\">\r\n"
+        + "                    <i class=\"fas fa-fw fa-wrench\"></i>\r\n"
+        + "                    <span style=\"text-align:center\">Relatórios</span></a>\r\n"
+        + "            </li>\r\n"
+		
 		+ "   <!-- botao -->\r\n"
 		+ "	<li class=\"nav-item\">\r\n"
 		+"<i class=\"fas fa-fw fa-wrench\"></i>\r\n"
@@ -115,23 +118,4 @@ public class ServletDashboard extends HttpServlet {
 		writer.write(html);
 	}
 	
-	// verifica os parametros da pagina para saber se há alguma ação a ser executada pelo servlet
-	// retorna true se a ação redireciona a pagina
-	private boolean verificarAcao(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String acao= request.getParameter("acao");
-		if(acao==null)
-		{
-			return false;
-		}
-		switch (acao) {
-		case "gerar":
-			
-			
-			// redirectiona para mostrar um alerta ao usuario
-			response.sendRedirect("professorDashboard?msg=gerar");
-			return true;
-		}
-		return false;
-	}
-
 }

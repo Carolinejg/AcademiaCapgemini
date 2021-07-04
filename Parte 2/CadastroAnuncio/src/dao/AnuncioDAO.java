@@ -35,7 +35,7 @@ public class AnuncioDAO {
 	        //executa o sql 
 	        prepareStatement.executeUpdate();
 	        //fecha conexao
-	        //conexao.close();
+	        
 	
 	    } catch (SQLException e) {
 	        e.printStackTrace();
@@ -68,12 +68,12 @@ public class AnuncioDAO {
 		return anuncios;
 	}
 	// Popula os campos de anuncio a partir do resultado de uma consulta sql
-		private static void popularAnuncio(Anuncio anuncio, ResultSet resultado) throws SQLException {
-			anuncio.setCliente(resultado.getString("cliente"));
-			anuncio.setDataFinal(resultado.getDate("datafinal"));
-			anuncio.setDataInicio(resultado.getDate("datainicio"));
-			anuncio.setInvestimentoPorDia(resultado.getInt("investimento"));
-			anuncio.setNome(resultado.getString("nome"));
-			
-		}
+	private static void popularAnuncio(Anuncio anuncio, ResultSet resultado) throws SQLException {
+		anuncio.setCliente(resultado.getString("cliente"));
+		anuncio.setDataFinal(resultado.getDate("datafinal"));
+		anuncio.setDataInicio(resultado.getDate("datainicio"));
+		anuncio.setInvestimentoPorDia(resultado.getInt("investimento"));
+		anuncio.setNome(resultado.getString("nome"));
+		
+	}
 }
