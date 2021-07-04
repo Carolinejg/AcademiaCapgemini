@@ -14,7 +14,7 @@ public class calculadora {
 	}
 	
 	//método principal 
-	//para realização dos testes descomente a linha mainTeste
+	//para realização dos testes descomente a linha mainTeste e comente a linha mainUsuario
 	public static void main(String[] args) {
 		//mainTeste(args);
 		mainUsuario(args);
