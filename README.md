@@ -58,9 +58,17 @@ O sistema foi desenvolvido utilizando os seguintes critérios:
   - quantidade máxima de cliques
   - quantidade máxima de compartilhamentos
   - filtragem por intervalo de tempo e cliente
-### Tecnologias utilizadas 
+### Tecnologias utilizadas e Arquitetura 
 - Java WEB 
 - Bootstrap
+- MVC
 ### Como executar o sistema de cadastros e relatórios de anúncios
+- Clone este repositório usando: git clone https://github.com/Carolinejg/academiacapgemini/
+- Importe no Eclipse o projeto **CadastroAnuncio** disponível no seguinte diretório (academiacapgemini/Parte 2/CadastroAnuncio/) 
+- Com o Eclipse na perspectiva Java EE execute o projeto com a opção **Run on Server** (prontinho! :blush:)
+### Testes Unitários 
+- As tabelas com os testes unitários podem ser vista aqui: 
+  - Teste de cadastro https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/cadastro_anuncio.pdf
+  - Teste de relatório https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/relatorio_anuncios.pdf
 
 
