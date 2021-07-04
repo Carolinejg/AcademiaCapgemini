@@ -1,4 +1,4 @@
-# Pré-requisitos para rodar os sistemas: 
+# Pré-requisitos para rodar o sistema da Calculadora: 
 - Ter o Java JDK instalado
 - Ter o Eclipse IDE for Enterprise Java Developers instalado 
 
@@ -32,4 +32,14 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
 
 ![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%201/calculadora/img/calculadora_terminal.png)
 
+# Pré-requisitos para rodar o sistema  Cadastro e Visualização de Relatórios: 
+- Ter o Java JDK instalado
+- Ter o Eclipse IDE for Enterprise Java Developers instalado 
+- Ter o servidor Tomcat instalado e configurado no Eclipse  
+ Obs: Para maiores informações de como instalar e configurar o TomCat segue um link que me ajudou :blush: : 
+   https://www.devmedia.com.br/instalacao-e-configuracao-do-apache-tomcat-no-eclipse/27360
+- Criar uma base de dados no PostgreSQL com as seguintes informações: 
+  - Nome da base: anunciodb
+  - E a tabela criada com os seguintes campos: 
+  
 
