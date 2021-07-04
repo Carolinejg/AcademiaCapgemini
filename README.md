@@ -41,5 +41,5 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
 - Criar uma base de dados no PostgreSQL com as seguintes informações: 
   - Nome da base: anunciodb
   - E a tabela criada com os seguintes campos: 
-  
+  ![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/img/calculadora_terminal.png)
 
