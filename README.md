@@ -40,6 +40,27 @@ O sistema foi desenvolvido utilizando os seguintes seguintes dados:
    https://www.devmedia.com.br/instalacao-e-configuracao-do-apache-tomcat-no-eclipse/27360
 - Criar uma base de dados no PostgreSQL com as seguintes informações: 
   - Nome da base: anunciodb
+  - Usuário: postgres
+  - Senha: 0715
   - E a tabela criada com os seguintes campos: 
   ![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/img/calculadora_terminal.png)
+## 2ª Parte: Sistema de cadastros e relatórios de anúncios.
+O sistema foi desenvolvido utilizando os seguintes critérios:
+- cadastro de anúncios com os seguintes dados:
+  - nome do anúncio
+  - cliente
+  - data de início
+  - data de término
+  - investimento por dia
+- relatório dos anúncios cadastrados:
+  - valor total investido
+  - quantidade máxima de visualizações
+  - quantidade máxima de cliques
+  - quantidade máxima de compartilhamentos
+  - filtragem por intervalo de tempo e cliente
+### Tecnologias utilizadas 
+- Java WEB 
+- Bootstrap
+### Como executar o sistema de cadastros e relatórios de anúncios
+
 
