@@ -70,5 +70,9 @@ O sistema foi desenvolvido utilizando os seguintes critérios:
 - As tabelas com os testes unitários podem ser vista aqui: 
   - Teste de cadastro https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/cadastro_anuncio.pdf
   - Teste de relatório https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/relatorio_anuncios.pdf
+### Layout do sistema
+![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/img/dashboard.png)
+![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/img/cadastro.png)
+![](https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/img/relatorio.png)
 
 
