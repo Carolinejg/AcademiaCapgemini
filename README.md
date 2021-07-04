@@ -67,7 +67,7 @@ O sistema foi desenvolvido utilizando os seguintes critérios:
 - Importe no Eclipse o projeto **CadastroAnuncio** disponível no seguinte diretório (academiacapgemini/Parte 2/CadastroAnuncio/) 
 - Com o Eclipse na perspectiva Java EE execute o projeto com a opção **Run on Server** (prontinho! :blush:)
 ### Testes Unitários 
-- As tabelas com os testes unitários podem ser vista aqui: 
+- As tabelas com os testes unitários podem ser vistas aqui: 
   - Teste de cadastro https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/cadastro_anuncio.pdf
   - Teste de relatório https://github.com/Carolinejg/academiacapgemini/blob/master/Parte%202/Testes/relatorio_anuncios.pdf
 ### Layout do sistema
