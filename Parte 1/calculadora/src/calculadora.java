@@ -57,7 +57,7 @@ public class calculadora {
 		
 		visualizacao = calcVisualizacao(investimento);
 		visuTotal=visualizacao;
-		//Laço responsável por calcular a quantidade de visualizacao mínima
+		//Laço responsável por calcular a quantidade de visualizacao 
 		for(int i=0; i<4 ; i++) {
 			//chamando a funcao de cálculo da nova visualizacao passando a anterior
 			visualizacao = calcNovasVisualizacao(visualizacao);

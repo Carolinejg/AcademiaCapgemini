@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="index.css" media="screen" />
 </head>
 <body>
-	<form class="form-horizontal" method="POST" action= 'CadastroController' name="form" >
+	<form class="form-horizontal" method="POST" action= 'cadastro' name="form" >
 		<fieldset>
 			<div class="panel panel-primary">
 			<div class="panel-heading">Cadastro de Anúncios</div>
@@ -27,7 +27,7 @@
 					<h11>*</h11>
 				</label>
 				<div class="col-md-8">
-					<input id="Nome" name="Nome" placeholder="" class="form-control input-md" required="" type="text">
+					<input id="nome" name="nome" placeholder="" class="form-control input-md" required="" type="text">
 				</div>
 			</div>
 			<div class="form-group">
@@ -43,11 +43,11 @@
 			<div class="form-group">
 			
 				<label class="col-md-2 control-label" for="rg">
-					Valor Investido 
+					Investimento por dia
 					<h11>*</h11>
 				</label>
 				<div class="col-md-2">
-					<input id="investimento" name="investimento" placeholder="Apenas números"  class="form-control input-md" required=""  >
+					<input id="investimento" name="investimento" placeholder="Apenas números"  class="form-control input-md" required onkeypress="return checkNumber(event)" onChange="numeroPositivo()" type="text"  > 
 				</div>
 				
 				<label class="col-md-2 control-label" for="dtInicio">
@@ -55,15 +55,15 @@
 					<h11>*</h11>
 				</label>
 				<div class="col-md-2">
-					<input id="dataInicio" name="dataInicio" placeholder="DD/MM/AAAA"  class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="MascaraData(form.dataInicio)" onBlur="minhaFuncao()">
+					<input id="dataInicio" name="dataInicio" class="form-control input-md" required type="date" onChange="verificaData()" >
 				</div>
 				
-				<label class="col-md-2 control-label" for="dtFinal">
-					Final do investimento
+				<label class="col-md-2 control-label" for="dataFinal">
+					Final do investimento (Não inclusa)
 					<h11>*</h11>
 				</label>
 				<div class="col-md-2">
-					<input id="dataFinal" name="dataFinal" placeholder="DD/MM/AAAA"  class="form-control input-md" required="" type="text" maxlength="10" OnKeyPress="MascaraData(form.dataFinal)" onBlur="minhaFuncao()">
+					<input id="dataFinal" name="dataFinal" class="form-control input-md" required type="date" onChange="verificaData()" >
 				</div>
 				
 				
@@ -74,121 +74,54 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="Cadastrar"></label>
 				<div class="col-md-8">
-					<button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+					<button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit" >Cadastrar</button>
 					<button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+					<a class= "btn btn-primary"  href= "dashboard" role="button">Voltar</a>
 				</div>
 			</div>
 			
 		</fieldset>
 	</form>
+	
 	<script>
-		function MascaraCPF(cpf){
-		    if(mascaraInteiro(cpf)==false){
-		            event.returnValue = false;
-		    }       
-		    return formataCampo(cpf, '000.000.000-00', event);
-		}
 		
-		function mascaraInteiro(){
-		    if (event.keyCode < 48 || event.keyCode > 57){
-		            event.returnValue = false;
-		            return false;
-		    }
-		    return true;
-		}
-		
-		function MascaraTelefone(tel){  
-		    if(mascaraInteiro(tel)==false){
-		            event.returnValue = false;
-		    }       
-		    return formataCampo(tel, '(00) 00000-0000', event);
-		}
-		function MascaraData(data){
-	        if(mascaraInteiro(data)==false){
-	                event.returnValue = false;
-	        }       
-	        return formataCampo(data, '00/00/0000', event);
-		}
-		function formataCampo(campo, Mascara, evento) { 
-		    var boleanoMascara; 
-		
-		    var Digitato = evento.keyCode;
-		    exp = /\-|\.|\/|\(|\)| /g
-		    campoSoNumeros = campo.value.toString().replace( exp, "" ); 
-		
-		    var posicaoCampo = 0;    
-		    var NovoValorCampo="";
-		    var TamanhoMascara = campoSoNumeros.length;; 
-		
-		    if (Digitato != 8) { // backspace 
-		            for(i=0; i<= TamanhoMascara; i++) { 
-		                    boleanoMascara  = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
-		                                                            || (Mascara.charAt(i) == "/")) 
-		                    boleanoMascara  = boleanoMascara || ((Mascara.charAt(i) == "(") 
-		                                                            || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " ")) 
-		                    if (boleanoMascara) { 
-		                            NovoValorCampo += Mascara.charAt(i); 
-		                              TamanhoMascara++;
-		                    }else { 
-		                            NovoValorCampo += campoSoNumeros.charAt(posicaoCampo); 
-		                            posicaoCampo++; 
-		                      }              
-		              }      
-		            campo.value = NovoValorCampo;
-		              return true; 
-		    }else { 
-		            return true; 
-		    }
-		}
-		
-		function calcIdade(ano_aniversario, mes_aniversario, dia_aniversario) {
-		    	var d = new Date,
-		        ano_atual = d.getFullYear(),
-		        mes_atual = d.getMonth() + 1,
-		        dia_atual = d.getDate(),
-		
-		        ano_aniversario = +ano_aniversario,
-		        mes_aniversario = +mes_aniversario,
-		        dia_aniversario = +dia_aniversario,
-		
-		        quantos_anos = ano_atual - ano_aniversario;
-		
-		    if (mes_atual < mes_aniversario || mes_atual == mes_aniversario && dia_atual < dia_aniversario) {
-		        quantos_anos--;
-		    }
-		    	    
-			
-		    return quantos_anos < 0 ? 0 : quantos_anos;
-		}
-		
-		function MascaraRG(rg){
-		    if((rg)==false){
-		            event.returnValue = false;
-		    }       
-		    return formataCampo(rg, '00.000.000-0', event);
-		}
-		
-		function minhaFuncao(){
-			var campo = document.getElementById('dtnasc').value;
-			
-			var arrDataExclusao = campo.split('/');
-		
-			var stringFormatada = arrDataExclusao[1] + '-' + arrDataExclusao[0] + '-' + arrDataExclusao[2];
-			
-			var dataFormatadaNascimento = new Date(stringFormatada);
-			var year = dataFormatadaNascimento.getFullYear();
-			var month = dataFormatadaNascimento.getMonth()+1;
-			var day = dataFormatadaNascimento.getDate();
-			var idade = calcIdade(year, month, day);
-			
-			if(idade < 18 ) {
-				document.getElementById('Cadastrar').disabled=true;
-				alert("Cadastro não pode ser efetuado ");
+		function verificaData() {
+			var dti = document.getElementById("dataInicio");
+			var dtf = document.getElementById("dataFinal");
+			if (dti.value == "" || dtf.value == "") {
+				document.getElementById("Cadastrar").disabled = true
 			}
-			else{ 
-				document.getElementById('Cadastrar').disabled=false;
+			else {
+				if (Date.parse(dtf.value) > Date.parse(dti.value)) {
+					document.getElementById("Cadastrar").disabled = false
+				}
+				else {
+					if (Date.parse(dtf.value) > 0) {
+						document.getElementById("Cadastrar").disabled = true
+						alert("Data final do investimento precisa ser após a data inicial");
+					}
+				}
 			}
-				
+		}
+	
+		function checkNumber(event) {
+			return checkCharcode(event.charCode);
+		}
+		function checkCharcode(charCode) {
+			return (charCode >= 48 && charCode <= 57) || (charCode == 44) || (charCode == 46);
+		}
+		
+		function numeroPositivo(){
+			var investimento = document.getElementById("investimento").value
+			investimento = investimento.replace(",", ".");
+			var num = parseFloat(investimento);
+			if(num <=0){
+				alert("Valor de investimento inválido");
+				document.getElementById("Cadastrar").disabled = true
+			}
+			else{
+				document.getElementById("Cadastrar").disabled = false
+			}
 		}
 	</script>
 </body>
